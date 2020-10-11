@@ -93,7 +93,7 @@ const fireSweetAlert = () => {
             <div className="card hoverable"> 
               <div  id="printMe" className="card-image">
                
-                <img id="saveMe" src={`https://frozen-dawn-43758.herokuapp.com${ordonnance.imageOrdo.url}`} alt={ordonnance.lastName} style={{width: '250px', margin: '0 auto'}}/>
+                <img id="saveMe" src={`${ordonnance.imageOrdo.url}`} alt={ordonnance.lastName} style={{width: '250px', margin: '0 auto'}}/>
                 {/* <Link to={`/pokemons/edit/${pokemon.id}`} className="btn-floating halfway-fab waves-effect waves-light"><i className="material-icons">edit</i></Link> */}
             
               </div>

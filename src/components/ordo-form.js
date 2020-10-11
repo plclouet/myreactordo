@@ -50,7 +50,7 @@ export default () => {
         formData.append('files.image', imageOrdo)
         
         try{
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/ordonnances`, {
+            const response = await fetch(`https://frozen-dawn-43758.herokuapp.com/ordonnances`, {
                 method: 'POST',
                 // headers: {
                 //     'Authorization': `Bearer ${user.jwt}`
