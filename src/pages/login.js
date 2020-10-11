@@ -21,7 +21,7 @@ export default ({history}) => {
         event.preventDefault()
 
         try{
-            const response = await fetch('http://localhost:1337/auth/local/', {
+            const response = await fetch('https://frozen-dawn-43758.herokuapp.com/auth/local/', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'

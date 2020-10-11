@@ -229,7 +229,7 @@ class OrdoForm extends React.Component {
             for (var p of formData) {
                 console.log(p);
               }
-              request.open('POST', `http://localhost:1337/ordonnances`);
+              request.open('POST', `https://frozen-dawn-43758.herokuapp.com/ordonnances`);
   
                 request.send(formData);
                 document.getElementById("demoForm").reset();

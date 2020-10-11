@@ -30,7 +30,7 @@ const OrdoDetail = ({ match }) => {
     useEffect(() => {
       const getOrdonnance = async () => {
         const response = await axios(
-          `${process.env.REACT_APP_API_URL}/ordonnances/${+match.params.id}`,
+          `https://frozen-dawn-43758.herokuapp.com/ordonnances/${+match.params.id}`,
         );
         setOrdonnance(response.data);
         
@@ -41,7 +41,7 @@ const OrdoDetail = ({ match }) => {
     }, [match.params.id]);
 
     const printArea = () => {
-      printJS(`${process.env.REACT_APP_API_URL}${ordonnance.imageOrdo.url}`, 'image')
+      printJS(`https://frozen-dawn-43758.herokuapp.com${ordonnance.imageOrdo.url}`, 'image')
     };
 
   
@@ -72,7 +72,7 @@ const fireSweetAlert = () => {
         'Deleted!',
         'Your file has been deleted.',
         'success'
-      ).then((result) => {axios.delete(`${process.env.REACT_APP_API_URL}/ordonnances/${ordonnance.id}`).then(() => history.push(`/ordonnances`))})
+      ).then((result) => {axios.delete(`https://frozen-dawn-43758.herokuapp.com/ordonnances/${ordonnance.id}`).then(() => history.push(`/ordonnances`))})
     }
   })
 };
@@ -93,7 +93,7 @@ const fireSweetAlert = () => {
             <div className="card hoverable"> 
               <div  id="printMe" className="card-image">
                
-                <img id="saveMe" src={`${process.env.REACT_APP_API_URL}${ordonnance.imageOrdo.url}`} alt={ordonnance.lastName} style={{width: '250px', margin: '0 auto'}}/>
+                <img id="saveMe" src={`https://frozen-dawn-43758.herokuapp.com${ordonnance.imageOrdo.url}`} alt={ordonnance.lastName} style={{width: '250px', margin: '0 auto'}}/>
                 {/* <Link to={`/pokemons/edit/${pokemon.id}`} className="btn-floating halfway-fab waves-effect waves-light"><i className="material-icons">edit</i></Link> */}
             
               </div>
@@ -109,7 +109,7 @@ const fireSweetAlert = () => {
                     
                    
                         <span style={{marginRight:5}} className="btn-floating  waves-effect waves-light" >
-                           <i onClick={() => {handleDownload(`${process.env.REACT_APP_API_URL}${ordonnance.imageOrdo.url}`, 
+                           <i onClick={() => {handleDownload(`https://frozen-dawn-43758.herokuapp.com${ordonnance.imageOrdo.url}`, 
                     `${ ordonnance.firstName }${ ordonnance.lastName }.jpg`)}} class="material-icons">arrow_circle_down</i> 
                         </span>
                    

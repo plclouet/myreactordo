@@ -14,7 +14,7 @@ class OrdoList extends React.Component {
   // Fetch your restaurants immediately after the component is mounted
   componentDidMount = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/ordonnances`);
+      const response = await axios.get(`https://frozen-dawn-43758.herokuapp.com/ordonnances`);
       this.setState({ ordonnances: response.data })
     } catch(error) {
       this.setState({ error })
