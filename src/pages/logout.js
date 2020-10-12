@@ -9,7 +9,7 @@ import {UserContext} from '../context/UserContext'
 
     const [text, setText] = useState('')
     
-    const {user, setUser} = useContext(UserContext)
+    const  setUser = useContext(UserContext)
 
  const  logoutClear = () => {
             setUser(null);

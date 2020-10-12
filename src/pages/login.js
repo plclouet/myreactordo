@@ -15,6 +15,7 @@ export default ({history}) => {
         if(user){
             history.push('/')
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleSubmit = async (event) => {

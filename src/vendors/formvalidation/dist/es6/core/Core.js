@@ -275,7 +275,7 @@ class Core {
         const type = elements[0].getAttribute('type');
         const list = ('radio' === type || 'checkbox' === type) ? [elements[0]] : elements;
         list.forEach((ele) => this.updateElementStatus(field, ele, status, validator));
-        if (!validator) {
+        if (!validator) {// eslint-disable-next-line
             switch (status) {
                 case 'NotValidated':
                     this.emit('core.field.notvalidated', field);
@@ -300,7 +300,7 @@ class Core {
     updateElementStatus(field, ele, status, validator) {
         const elements = this.elements[field];
         const fieldValidators = this.fields[field].validators;
-        const validatorArr = validator ? [validator] : Object.keys(fieldValidators);
+        const validatorArr = validator ? [validator] : Object.keys(fieldValidators);// eslint-disable-next-line
         switch (status) {
             case 'NotValidated':
                 validatorArr.forEach((v) => this.emit('core.validator.notvalidated', {

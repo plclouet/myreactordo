@@ -41,7 +41,7 @@ const OrdoDetail = ({ match }) => {
     }, [match.params.id]);
 
     const printArea = () => {
-      printJS(`https://frozen-dawn-43758.herokuapp.com${ordonnance.imageOrdo.url}`, 'image')
+      printJS(`${ordonnance.imageOrdo.url}`, 'image')
     };
 
   
@@ -109,7 +109,7 @@ const fireSweetAlert = () => {
                     
                    
                         <span style={{marginRight:5}} className="btn-floating  waves-effect waves-light" >
-                           <i onClick={() => {handleDownload(`https://frozen-dawn-43758.herokuapp.com${ordonnance.imageOrdo.url}`, 
+                           <i onClick={() => {handleDownload(`${ordonnance.imageOrdo.url}`, 
                     `${ ordonnance.firstName }${ ordonnance.lastName }.jpg`)}} class="material-icons">arrow_circle_down</i> 
                         </span>
                    

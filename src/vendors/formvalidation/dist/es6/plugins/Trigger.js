@@ -7,7 +7,7 @@ export default class Trigger extends Plugin {
         this.ieVersion = (() => {
             let v = 3;
             let div = document.createElement('div');
-            let a = div['all'] || [];
+            let a = div['all'] || [];// eslint-disable-next-line
             while (div.innerHTML = '<!--[if gt IE ' + (++v) + ']><br><![endif]-->', a[0]) { }
             return v > 4 ? v : document['documentMode'];
         })();
