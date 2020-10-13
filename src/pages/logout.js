@@ -9,10 +9,11 @@ import {UserContext} from '../context/UserContext'
 
     const [text, setText] = useState('')
     
-    const  setUser = useContext(UserContext)
+    const {user, logoutUser} = useContext(UserContext)
 
  const  logoutClear = () => {
-            setUser(null);
+            logoutUser();
+            console.log("after logout", user)
             localStorage.removeItem('jwt');
             localStorage.removeItem('username');
             setText('vous êtes déconnecté; vous allez être redirigé vers la page principale...');
@@ -35,7 +36,7 @@ import {UserContext} from '../context/UserContext'
                 
                
                  <button className="btn btn-primary" onClick={logoutClear}>Logout</button>
-          
+                 
            
              </div>  {/*  fin row */}  
              

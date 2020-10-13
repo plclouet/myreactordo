@@ -7,12 +7,13 @@ export default ({history}) => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const [text, setText] = useState('Loading...')
-    const {user, setUser} = useContext(UserContext)
+    //const {user, setUser} = useContext(UserContext)
+    const { loginUser, user } = useContext(UserContext);
    
     console.log("user", user)
 
     useEffect(() => {
-        if(user){
+        if(user.auth){
             history.push('/')
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,9 +44,10 @@ export default ({history}) => {
                 return //Stop execution
             }
 
-            setUser(data.user.username);
+            loginUser(data.user.username);
             localStorage.setItem('jwt', data.jwt);
             localStorage.setItem('username', data.user.username);
+           
             setText('You have been successfully logged in. You will be redirected in a few seconds...');
             setTimeout(() => history.push('/protected'), 3000); // Redirect to homepage after 3 sec
 
