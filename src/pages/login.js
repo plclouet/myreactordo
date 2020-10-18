@@ -11,9 +11,10 @@ export default ({history}) => {
     const { loginUser, user } = useContext(UserContext);
    
     console.log("user", user)
+    const jwt = localStorage.getItem('jwt');
 
     useEffect(() => {
-        if(user.auth){
+        if(jwt){
             history.push('/')
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

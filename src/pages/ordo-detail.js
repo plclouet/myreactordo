@@ -72,11 +72,22 @@ const fireSweetAlert = () => {
         'Deleted!',
         'Your file has been deleted.',
         'success'
-      ).then((result) => {axios.delete(`https://frozen-dawn-43758.herokuapp.com/ordonnances/${ordonnance.id}`).then(() => history.push(`/ordonnances`))})
-    }
-  })
+      ).then((result) => {axios.delete(`https://frozen-dawn-43758.herokuapp.com/ordonnances/${ordonnance.id}`)
+      .then((response) => {
+        axios.delete(`https://frozen-dawn-43758.herokuapp.com/upload/files/${ordonnance.imageOrdo.id}`)
+      .then(() => history.push(`/ordonnances`))
+      });
+  });
+  };
+});
 };
 
+//version précédente
+// .then((result) => {axios.delete(`https://frozen-dawn-43758.herokuapp.com/ordonnances/${ordonnance.id}`)
+//.then(() => history.push(`/ordonnances`))})
+//}
+//})
+//};
 
   const deleteOrdo = () => {
     fireSweetAlert();
@@ -110,7 +121,7 @@ const fireSweetAlert = () => {
                    
                         <span style={{marginRight:5}} className="btn-floating  waves-effect waves-light" >
                            <i onClick={() => {handleDownload(`${ordonnance.imageOrdo.url}`, 
-                    `${ ordonnance.firstName }${ ordonnance.lastName }.jpg`)}} class="material-icons">arrow_circle_down</i> 
+                    `${ ordonnance.firstName }${ ordonnance.lastName }.jpg`)}} className="material-icons">arrow_circle_down</i> 
                         </span>
                    
                         

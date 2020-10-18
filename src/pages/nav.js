@@ -1,7 +1,6 @@
  import React from 'react'
 import {NavLink} from 'react-router-dom'
-// import {UserContext} from '../context/UserContext'
-
+import Logo from "../images/logo1.jpg"
 
 export default () => {
 
@@ -12,7 +11,10 @@ export default () => {
       <div className="nav-wrapper">
      
          {/* <a href="#" style={{paddingLeft: 10}} className="brand-logo">Logo</a> */}
-         <NavLink style={{paddingLeft: 10}} className="brand-logo hide-on-small-only" to="/" exact> Logo </NavLink>
+         <NavLink style={{paddingLeft: 10, paddingTop: 8 }} className="brand-logo hide-on-med-and-down" to="/" exact>
+          
+            <img src={Logo} width="80" height="40" alt="radiologie"/> 
+          </NavLink>
       
         <ul id="nav-mobile" className="right">
           <li><NavLink to="/" exact> Home </NavLink></li>
