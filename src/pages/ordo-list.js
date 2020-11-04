@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import OrdoCard from '../components/ordo-card';
+import SearchBar from '../components/SearchBar';
 
 class OrdoList extends React.Component {
 
@@ -21,6 +22,12 @@ class OrdoList extends React.Component {
     }
   }
 
+  updateOrdonnances = (ordonnances) => {
+    this.setState({
+      ordonnances
+    })
+  }
+
   render() {
     const { error, ordonnances } = this.state
 
@@ -33,6 +40,7 @@ class OrdoList extends React.Component {
       <div>
       <h1 className="center">Ordonnances</h1>
       <div className="container"> 
+      <SearchBar updateOrdonnances={ this.updateOrdonnances }/>
         <div className="row">
         {/* {ordonnances.map(ordonnance => <li key={ordonnance.id}>{ordonnance.lastName} + {ordonnance.firstName}</li>)} */}
         {ordonnances.map(ordonnance => (
