@@ -7,6 +7,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
+    "blueimp-load-image": "^5.14.0",
+    "filerobot-image-editor": "^3.12.3-beta.4",
     "formik": "^2.2.1",
     "jquery": "^3.5.1",
     "js-file-download": "^0.4.12",

@@ -67,3 +67,17 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 # myreactordo
+
+
+ ## version 9
+
+ on installe formik 
+ on crée le composant SearchBar.js
+ on installe le composant dans ordo-list.js, après l'avoir importé
+ on rajoute la fonction updateOrdonnances
+
+### version 10
+
+ajout de filerobot pour éditer les images sur la page ordo-detail.js : yarn add filerobot-image-editor
+ajout de blueimport load image pour charger les imagettes dans ordo-form.js: yarn add blueimp-load-image
+ajout de sweetalert2: yarn add sweetalert2 et modification de la page ordo-form.js

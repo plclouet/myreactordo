@@ -292,8 +292,8 @@ import Materialize from '../vendors/formvalidation/dist/es6/plugins/Materialize'
 
 import moment from 'moment';
 //import axios from 'axios';
-
-
+import loadImage from 'blueimp-load-image';
+import Swal from 'sweetalert2';
 
 const OrdoForm = ({history}) => {
     //const [date, setDate] = useState(new Date());
@@ -304,6 +304,28 @@ const OrdoForm = ({history}) => {
   //  const handleCalendarOpen = () => console.log("Calendar opened");
 
 
+  const imageRotate = (file) => {
+    
+    loadImage(
+    file,
+    function (img) {
+        var node = document.getElementById("imageOrdoDiv");
+      node.appendChild(img);
+        console.log(img)
+     
+    },
+    { maxWidth: 50 } // Options
+  )}
+
+
+
+  const submitAlert = () => {
+    Swal.fire(
+        'Bravo!',
+        'votre ordonnance est envoyée',
+        'success'
+    ).then((result) => {history.push('/')})
+}
 
   useEffect(() => {
 
@@ -440,7 +462,8 @@ const OrdoForm = ({history}) => {
  
                request.send(formData);
                //document.getElementById("demoForm").reset();
-               history.push('/');
+               //history.push('/');
+               submitAlert();
            // axios({
            //     method: 'post',
            //     url:  `http://localhost:1337/ordonnances`,
@@ -515,7 +538,7 @@ const OrdoForm = ({history}) => {
                                 name="examen"
                                 // value={examen} 
                                 >
-                                    <option>Choisir une option</option>
+                                    
                                     <option value="IRM">IRM</option>
                                     <option value="Scanner">Scanner</option>
                                     
@@ -546,10 +569,18 @@ const OrdoForm = ({history}) => {
                         </div>
 
                          {/* file  */}
-                        <div className="form-group row">
+                         <div className="form-group row">
                             <label className="col-sm-3 col-form-label">ordonnance</label>
                             <div className="col-sm-5">
-                                <input type="file" className="form-control" name="imageOrdo" />
+                                <input type="file" className="form-control" name="imageOrdo" 
+                                onChange={(e) => imageRotate(e.target.files[0])}/>
+                            </div>
+                        </div>
+                        {/* apercu  */}
+                        <div className="form-group row">
+                            <label className="col-sm-3 col-form-label">aperçu</label>
+                            <div className="col-sm-5" id="imageOrdoDiv">
+                            
                             </div>
                         </div>
                        

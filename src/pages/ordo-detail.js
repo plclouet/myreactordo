@@ -8,7 +8,7 @@ import Loader from '../components/loader';
 import fileDownload from 'js-file-download';
  // ES6 Modules or TypeScript
 import Swal from 'sweetalert2';
-
+import FilerobotImageEditor from 'filerobot-image-editor';
  
 const OrdoDetail = ({ match }) => {
 
@@ -16,6 +16,7 @@ const OrdoDetail = ({ match }) => {
    
   const [ordonnance, setOrdonnance] = useState();
   const history = useHistory();
+  const [show, toggle] = useState(false);
  
 /*   useEffect(() => {
 
@@ -104,9 +105,17 @@ const fireSweetAlert = () => {
             <div className="card hoverable"> 
               <div  id="printMe" className="card-image">
                
-                <img id="saveMe" src={`${ordonnance.imageOrdo.url}`} alt={ordonnance.lastName} style={{width: '250px', margin: '0 auto'}}/>
+                <img id="saveMe" src={`${ordonnance.imageOrdo.url}`} alt={ordonnance.lastName} 
+                 onClick={() => { toggle(true) }} style={{width: '250px', margin: '0 auto'}}/>
                 {/* <Link to={`/pokemons/edit/${pokemon.id}`} className="btn-floating halfway-fab waves-effect waves-light"><i className="material-icons">edit</i></Link> */}
             
+
+                <FilerobotImageEditor
+                  show={show}
+                  src={`${ordonnance.imageOrdo.url}`}
+                  onClose={() => { toggle(false) }}
+                />
+
               </div>
               <div className="card-stacked">
                 <div className="card-content">
