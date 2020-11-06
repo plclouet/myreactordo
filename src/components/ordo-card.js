@@ -32,15 +32,16 @@ const OrdoCard = ({ordonnance, borderColor = '#009688'}) => {
   } 
 
 
-  if (ordonnance.imageOrdo){
+  if (ordonnance.imageOrdo.formats.small){
 
-  
+  console.log(ordonnance.imageOrdo)
   return (
   
     <div className="col s12 m6 l4" onMouseEnter={showBorder} onMouseLeave={hideBorder} onClick={() => goToOrdonnance(ordonnance.id)}>
       <div className="card"  style={{ borderColor: color }}>
         <div className="card-image"> 
-          <img src={`${ordonnance.imageOrdo.url}` } alt={ordonnance.lastName} height="300"/>
+        
+          <img src={ordonnance.imageOrdo.formats.small.url} alt={ordonnance.lastName} height="300"/>
           {/* <img src={ uri: `${process.env.REACT_APP_API_URL}` + ordonnance.imageOrdo.url ? `${process.env.REACT_APP_API_URL}` + ordonnance.imageOrdo.url : null } alt={ordonnance.lastName} height="300"/> */}
         </div>
     

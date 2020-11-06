@@ -42,7 +42,7 @@ const OrdoDetail = ({ match }) => {
     }, [match.params.id]);
 
     const printArea = () => {
-      printJS(`${ordonnance.imageOrdo.url}`, 'image')
+      printJS(ordonnance.imageOrdo.formats.small.url, 'image')
     };
 
   
@@ -105,14 +105,14 @@ const fireSweetAlert = () => {
             <div className="card hoverable"> 
               <div  id="printMe" className="card-image">
                
-                <img id="saveMe" src={`${ordonnance.imageOrdo.url}`} alt={ordonnance.lastName} 
+                <img id="saveMe" src={ordonnance.imageOrdo.formats.small.url} alt={ordonnance.lastName} 
                  onClick={() => { toggle(true) }} style={{width: '250px', margin: '0 auto'}}/>
                 {/* <Link to={`/pokemons/edit/${pokemon.id}`} className="btn-floating halfway-fab waves-effect waves-light"><i className="material-icons">edit</i></Link> */}
             
 
                 <FilerobotImageEditor
                   show={show}
-                  src={`${ordonnance.imageOrdo.url}`}
+                  src={ordonnance.imageOrdo.formats.small.url}
                   onClose={() => { toggle(false) }}
                 />
 
@@ -129,7 +129,7 @@ const fireSweetAlert = () => {
                     
                    
                         <span style={{marginRight:5}} className="btn-floating  waves-effect waves-light" >
-                           <i onClick={() => {handleDownload(`${ordonnance.imageOrdo.url}`, 
+                           <i onClick={() => {handleDownload(ordonnance.imageOrdo.formats.small.url, 
                     `${ ordonnance.firstName }${ ordonnance.lastName }.jpg`)}} className="material-icons">arrow_circle_down</i> 
                         </span>
                    
